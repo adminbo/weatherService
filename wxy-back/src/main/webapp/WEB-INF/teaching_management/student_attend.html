@@ -1,0 +1,680 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生出勤</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script src="http://cdn.bootcss.com/html5shiv/r29/html5.js"></script>
+    <script src="../js/jquery-1.8.3.js"></script>
+    <script>
+        $(function(){
+            $(".link > a").click(function(){
+                $(this).next().slideToggle(200,function(){
+                    //TODO
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<header>
+    <h1>孺学宝移动办公平台</h1>
+    <ul>
+        <li>
+            <a href="../school_management/campus.html">
+                <figure>
+                    <img src="../images/school.png" />
+                    <figcaption>校园管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../administration_management/grade.html">
+                <figure>
+                    <img src="../images/class.png" />
+                    <figcaption>教务管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <figure>
+                    <img src="../images/teacher.png" />
+                    <figcaption>教学管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../parent_communication/pickup_management.html">
+                <figure>
+                    <img src="../images/parent.png" />
+                    <figcaption>家长协同</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../accesscontrol_management/machine_management.html">
+                <figure>
+                    <img src="../images/door.png" />
+                    <figcaption>门禁管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../insurance_management/insurance_info.html">
+                <figure>
+                    <img src="../images/baoxian.png" />
+                    <figcaption>保险管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../system_management/user_management.html">
+                <figure>
+                    <img src="../images/system.png" />
+                    <figcaption>系统管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../center/account_configuration.html">
+                <figure>
+                    <img src="../images/center.png" />
+                    <figcaption>技服中心</figcaption>
+                </figure>
+            </a>
+        </li>
+    </ul>
+    <div class="head_right">
+        <select>
+            <option>幼儿园1</option>
+            <option>幼儿园2</option>
+            <option>幼儿园3</option>
+            <option>幼儿园4</option>
+        </select>
+        <div class="link">
+            <a href="#" class="switch"></a>
+            <ul>
+                <li><a href="../system_management/system_settings.html">系统设置</a></li>
+                <li><a href="#">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="main_left">
+        <h2>用户名<span>admin</span></h2>
+        <ul>
+            <li><a href="student_attend.html" class="attend">学生出勤</a></li>
+        </ul>
+    </div>
+    <div class="main_right">
+        <h2>日志</h2>
+        <img src="../images/rili.jpg" />
+    </div>
+    <div class="detail">
+        <article class="attend_main">
+            <section class="top">
+                <a href="#">首页 ></a>
+                <a href="#">教学管理 ></a>
+                <a href="#">学生出勤</a>
+            </section>
+            <form action="#" method="post">
+                <div class="search">
+                    <div>
+                        <label>学期：</label>
+                        <input type="text" />
+                    </div>
+                </div>
+                <div class="btn">
+                    <button class="lookup" type="submit" value="查找">查找</button>
+                    <input type="reset" class="clean" value="清空" />
+                </div>
+                <div class="clear"></div>
+            </form>
+            <div class="grade_con">
+                <div id="tab_bar">
+                    <ul>
+                        <li id="tab1" class="tab" onclick="myclick(1)" style="background-color: #fff">
+                            <span>全年级</span>
+                        </li>
+                        <li id="tab2" class="tab" onclick="myclick(2)">
+                            一班
+                        </li>
+                        <li id="tab3" class="tab" onclick="myclick(3)">
+                            二班
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab_con">
+                    <div class="tab_css" id="tab1_content" style="display: block">
+                        <div class="content">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="num"></th>
+                                    <th class="sname">学生姓名</th>
+                                    <th class="sgrade">年级</th>
+                                    <th class="sclass">班级</th>
+                                    <th class="sleave">事假</th>
+                                    <th class="bleave">病假</th>
+                                    <th class="late">迟到</th>
+                                    <th class="absent">旷课</th>
+                                    <th class="actual">实出勤</th>
+                                    <th class="do">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody class="con_tbody">
+                                <tr>
+                                    <td class="num">1</td>
+                                    <td class="sname" title=""></td>
+                                    <td class="sgrade" title=""></td>
+                                    <td class="sclass" title=""></td>
+                                    <td class="sleave" title=""></td>
+                                    <td class="bleave" title=""></td>
+                                    <td class="late" title=""></td>
+                                    <td class="absent" title=""></td>
+                                    <td class="actual" title=""></td>
+                                    <td class="do">
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="bar">
+                                <div class="barcon">
+                                    <select>
+                                        <option value="显示10条">显示10条</option>
+                                        <option value="显示20条">显示20条</option>
+                                        <option value="显示30条">显示30条</option>
+                                    </select>
+                                    <div class="page">
+                                        <a href="#" class="first"><img src="../images/first.jpg" /></a>
+                                        <a href="#" class="up"><img src="../images/up.jpg" /></a>
+                                        <span>第<input value="1"/>页 共1页</span>
+                                        <a href="#" class="down"><img src="../images/down.jpg" /></a>
+                                        <a href="#" class="last"><img src="../images/last.jpg" /></a>
+                                    </div>
+                                    <a href="#" class="reload"><img src="../images/reload.jpg"></a>
+                                    <p>共10条记录</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab_css" id="tab2_content">
+                        <div class="content">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="num"></th>
+                                    <th class="sname">学生姓名</th>
+                                    <th class="sleave">事假</th>
+                                    <th class="bleave">病假</th>
+                                    <th class="late">迟到</th>
+                                    <th class="absent">旷课</th>
+                                    <th class="actual">实出勤</th>
+                                    <th class="do">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody class="con_tbody">
+                                <tr>
+                                    <td class="num">1</td>
+                                    <td class="sname" title=""></td>
+                                    <td class="sleave" title=""></td>
+                                    <td class="bleave" title=""></td>
+                                    <td class="late" title=""></td>
+                                    <td class="absent" title=""></td>
+                                    <td class="actual" title=""></td>
+                                    <td class="do">
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="bar">
+                                <div class="barcon">
+                                    <select>
+                                        <option value="显示10条">显示10条</option>
+                                        <option value="显示20条">显示20条</option>
+                                        <option value="显示30条">显示30条</option>
+                                    </select>
+                                    <div class="page">
+                                        <a href="#" class="first"><img src="../images/first.jpg" /></a>
+                                        <a href="#" class="up"><img src="../images/up.jpg" /></a>
+                                        <span>第<input value="1"/>页 共1页</span>
+                                        <a href="#" class="down"><img src="../images/down.jpg" /></a>
+                                        <a href="#" class="last"><img src="../images/last.jpg" /></a>
+                                    </div>
+                                    <a href="#" class="reload"><img src="../images/reload.jpg"></a>
+                                    <p>共10条记录</p>
+                                </div>
+                            </div>
+                            <!--<div class="choice">请先选择学校！</div>-->
+                        </div>
+                    </div>
+                    <div class="tab_css" id="tab3_content">
+                        <div class="content">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="num"></th>
+                                    <th class="sname">学生姓名</th>
+                                    <th class="sleave">事假</th>
+                                    <th class="bleave">病假</th>
+                                    <th class="late">迟到</th>
+                                    <th class="absent">旷课</th>
+                                    <th class="actual">实出勤</th>
+                                    <th class="do">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody class="con_tbody">
+                                <tr>
+                                    <td class="num">1</td>
+                                    <td class="sname" title=""></td>
+                                    <td class="sleave" title=""></td>
+                                    <td class="bleave" title=""></td>
+                                    <td class="late" title=""></td>
+                                    <td class="absent" title=""></td>
+                                    <td class="actual" title=""></td>
+                                    <td class="do">
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td title=""></td>
+                                    <td>
+                                        <a href="attend_look.html" class="look">查看</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="bar">
+                                <div class="barcon">
+                                    <select>
+                                        <option value="显示10条">显示10条</option>
+                                        <option value="显示20条">显示20条</option>
+                                        <option value="显示30条">显示30条</option>
+                                    </select>
+                                    <div class="page">
+                                        <a href="#" class="first"><img src="../images/first.jpg" /></a>
+                                        <a href="#" class="up"><img src="../images/up.jpg" /></a>
+                                        <span>第<input value="1"/>页 共1页</span>
+                                        <a href="#" class="down"><img src="../images/down.jpg" /></a>
+                                        <a href="#" class="last"><img src="../images/last.jpg" /></a>
+                                    </div>
+                                    <a href="#" class="reload"><img src="../images/reload.jpg"></a>
+                                    <p>共10条记录</p>
+                                </div>
+                            </div>
+                            <!--<div class="choice">请先选择学校！</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
+<script type="text/javascript">
+    var myclick = function(v) {
+        var llis = document.getElementsByClassName("tab");
+        for(var i = 0; i < llis.length; i++) {
+            var lli = llis[i];
+            if(lli == document.getElementById("tab" + v)) {
+                lli.style.backgroundColor = "#fff";
+            } else {
+                lli.style.backgroundColor = "#e4e4e4";
+            }
+        }
+
+        var divs = document.getElementsByClassName("tab_css");
+        for(var i = 0; i < divs.length; i++) {
+
+            var divv = divs[i];
+
+            if(divv == document.getElementById("tab" + v + "_content")) {
+                divv.style.display = "block";
+            } else {
+                divv.style.display = "none";
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

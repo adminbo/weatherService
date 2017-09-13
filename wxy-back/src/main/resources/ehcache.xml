@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false">
+<!-- 缓存路径 -->
+  <diskStore path="java.io.tmpdir"/>
+  <!-- 默认的缓存配置信息,如果不加特殊说明,则所有对象按照此配置项处理 -->
+  <!--timeToIdleSeconds 当缓存闲置n秒后销毁 --> 
+  <!--timeToLiveSeconds 当缓存存活n秒后销毁 --> 
+  <!-- eternal 对象是否永久有效，一但设置了，timeout将不起作用。  -->
+  <!-- overflowToDisk 当内存中对象数量达到maxElementsInMemory时，是否允许Ehcache将会对象写到磁盘中。  -->
+  <!-- maxElementsOnDisk 硬盘最大缓存个数。 -->
+  <!-- diskPersistent 是否缓存虚拟机重启期数据 -->
+  <!-- diskExpiryThreadIntervalSeconds磁盘失效线程运行时间间隔，默认是120秒。 -->
+  <!-- 当达到maxElementsInMemory限制时，Ehcache将会根据指定的策略去清理内存。默认策略是LRU（最近最少使用）。你可以设置为FIFO（先进先出）或是LFU（较少使用） -->
+   <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="true"
+            maxElementsOnDisk="10000000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU"
+            />
+     <!-- shiro缓存配置 -->
+     <!-- 登录记录缓存 锁定10分钟 -->  
+     <cache name="passwordRetryCache" eternal="false"  
+         timeToIdleSeconds="600" timeToLiveSeconds="0" overflowToDisk="false"  
+         statistics="true" maxElementsInMemory="10000">  
+     </cache>  
+     <cache name="authorizationCache" eternal="false"  
+         timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"  
+         statistics="true">  
+     </cache>  
+  
+     <cache name="authenticationCache" eternal="false"  
+        timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+   
+     <cache name="shiro-activeSessionCache" eternal="false"  
+        timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+     <!-- 实体类缓存配置 -->
+     <cache name="com.zjkj.wxy.core.domain.Authority" eternal="false"  
+        timeToIdleSeconds="180" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+     <cache name="com.zjkj.wxy.core.domain.Card" eternal="false"  
+        timeToIdleSeconds="180" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+     <cache name="com.zjkj.wxy.core.domain.CardApply" eternal="false"  
+        timeToIdleSeconds="180" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+     <cache name="com.zjkj.wxy.core.domain.User" eternal="false"  
+        timeToIdleSeconds="180" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+     <cache name="com.zjkj.wxy.core.domain.Role" eternal="false"  
+        timeToIdleSeconds="180" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+     <cache name="com.zjkj.wxy.core.domain.Role.users" eternal="false"  
+        timeToIdleSeconds="180" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+     <cache name="com.zjkj.wxy.core.domain.User.roles" eternal="false"  
+        timeToIdleSeconds="180" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+     <cache name="com.zjkj.wxy.core.domain.User.systems" eternal="false"  
+        timeToIdleSeconds="180" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+     <cache name="com.zjkj.wxy.core.domain.User.communications" eternal="false"  
+        timeToIdleSeconds="180" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+     <cache name="com.zjkj.wxy.core.domain.Role.authoritys" eternal="false"  
+        timeToIdleSeconds="180" timeToLiveSeconds="0" overflowToDisk="false"  
+        statistics="true">  
+     </cache>  
+</ehcache>

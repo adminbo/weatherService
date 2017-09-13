@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	  <!-- 配置过滤器，spring框架提供的解决hibernate延迟加载文件 -->
+	  <session-config>
+	  <session-timeout>-1</session-timeout>
+	  </session-config>
+  <filter>
+  	<filter-name>openSessionInView</filter-name>
+  	<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+ 		<init-param>
+            <param-name>flushMode</param-name>
+            <param-value>AUTO</param-value>
+        </init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>openSessionInView</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+	<!-- 设置上下文的读取 路径  -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<!-- Spring的监听器 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+		<!-- get提交解决中文乱码 -->
+	    <context-param>  
+            <param-name>charset</param-name>  
+            <param-value>UTF-8</param-value>  
+    	</context-param> 
+	<filter>
+		<filter-name>getEncoding</filter-name>
+		<filter-class>com.zjkj.wxy.core.web.filters.EcodeingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>getEncoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+		<!-- UTF-8 POST提交  （不包括GET提交） Request Response当中的中文  -->
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<!-- shiro过滤器 -->
+	<filter>
+		 <filter-name>shiroFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		 <init-param>  
+           <!--  该值缺省为false,表示生命周期由SpringApplicationContext管理,设置为true则表示由ServletContainer管理   -->
+            <param-name>targetFilterLifecycle</param-name>  
+            <param-value>true</param-value>  
+        </init-param>  
+	</filter>
+	<filter-mapping>
+		 <filter-name>shiroFilter</filter-name>
+		 <url-pattern>/*</url-pattern>
+	</filter-mapping> 
+	<!-- Springmvc的前端控制器 -->
+	<servlet>
+		<servlet-name>back</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:springmvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>back</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	  <!-- 默认首页 -->
+    <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

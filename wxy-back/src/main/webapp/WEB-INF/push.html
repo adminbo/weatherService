@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>信息推送</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script src="http://cdn.bootcss.com/html5shiv/r29/html5.js"></script>
+    <script src="../js/jquery-1.8.3.js"></script>
+    <script src="../js/My97DatePicker/WdatePicker.js"></script>
+    <script src="../js/checkpeizhi.js"></script>
+    <script>
+        $(function(){
+            $(".link > a").click(function(){
+                $(this).next().slideToggle(200,function(){
+                    //TODO
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<header>
+    <h1>孺学宝移动办公平台</h1>
+    <ul>
+        <li>
+            <a href="../school_management/campus.html">
+                <figure>
+                    <img src="../images/school.png" />
+                    <figcaption>校园管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../administration_management/grade.html">
+                <figure>
+                    <img src="../images/class.png" />
+                    <figcaption>教务管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <figure>
+                    <img src="../images/teacher.png" />
+                    <figcaption>教学管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../parent_communication/pickup_management.html">
+                <figure>
+                    <img src="../images/parent.png" />
+                    <figcaption>家长协同</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../accesscontrol_management/machine_management.html">
+                <figure>
+                    <img src="../images/door.png" />
+                    <figcaption>门禁管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../insurance_management/insurance_info.html">
+                <figure>
+                    <img src="../images/baoxian.png" />
+                    <figcaption>保险管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../system_management/user_management.html">
+                <figure>
+                    <img src="../images/system.png" />
+                    <figcaption>系统管理</figcaption>
+                </figure>
+            </a>
+        </li>
+        <li>
+            <a href="../center/account_configuration.html">
+                <figure>
+                    <img src="../images/center.png" />
+                    <figcaption>技服中心</figcaption>
+                </figure>
+            </a>
+        </li>
+    </ul>
+    <div class="head_right">
+        <select>
+            <option>幼儿园1</option>
+            <option>幼儿园2</option>
+            <option>幼儿园3</option>
+            <option>幼儿园4</option>
+        </select>
+        <div class="link">
+            <a href="#" class="switch"></a>
+            <ul>
+                <li><a href="../system_management/system_settings.html">系统设置</a></li>
+                <li><a href="#">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<main>
+    <aside class="main_left">
+        <h2>用户名<span>admin</span></h2>
+        <ul>
+            <li><a href="account_configuration.html" class="configure">公众号配置</a></li>
+            <li><a href="account_management.html" class="gmanage">公众号管理</a></li>
+            <li><a href="school_administration.html" class="smanage">学校管理</a></li>
+            <li><a href="push.html" class="push">信息推送</a></li>
+            <li><a href="insurance_statistics.html" class="statistics">保险统计</a></li>
+        </ul>
+    </aside>
+    <aside class="main_right">
+        <h2>日志</h2>
+        <img src="../images/rili.jpg" />
+    </aside>
+    <div class="detail">
+        <article class="push_main">
+            <section class="top">
+                <a href="#">首页 ></a>
+                <a href="#">技服中心 ></a>
+                <a href="#">信息推送</a>
+            </section>
+            <form action="#" method="post">
+                <div class="search">
+                    <div>
+                        <label>信息标题：</label>
+                        <input type="text" />
+                    </div>
+                </div>
+                <div class="search">
+                    <div>
+                        <label>发送时间：</label>
+                        <input class="Wdate" type="text" onClick="WdatePicker()">
+                    </div>
+                </div>
+                <div class="btn">
+                    <button class="lookup" type="submit" value="查找">查找</button>
+                    <input type="reset" class="clean" value="清空" />
+                </div>
+                <div class="clear"></div>
+            </form>
+            <section class="s_add">
+                <a href="#" class="add">新增</a>
+            </section>
+            <div class="grade_con">
+                <div id="tab_bar">
+                    <ul>
+                        <li id="tab1" class="tab" onclick="myclick(1)" style="background-color: #fff">
+                            已发消息
+                        </li>
+                        <li id="tab2" class="tab" onclick="myclick(2)">
+                            <span>草稿箱<em>12</em></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab_css" id="tab1_content" style="display: block">
+                    <ul class="push_con">
+                        <li>
+                            <div class="push_top">
+                                <div class="push_left">今天 16:51</div>
+                                <a class="push_info">别焦虑了，接受吧，你的孩子只是一个普通人</a>
+                                <div class="push_right">
+                                    <a href="push_look.html" class="look">查看</a>
+                                    <a href="push_revise.html" class="relay">转发</a>
+                                    <a href="#" class="del">删除</a>
+                                </div>
+                            </div>
+                            <div class="push_bottom">
+                                <div class="push_left">图文</div>
+                                <div class="sends">发送人群: 全部用户</div>
+                                <div class="push_left">发送成功: <span>242</span></div>
+                                <div class="push_left">发送失败: <span>0</span></div>
+                                <div class="push_left">阅读数: <span>1572</span></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="push_top">
+                                <div class="push_left">今天 16:51</div>
+                                <a class="push_info">别焦虑了，接受吧，你的孩子只是一个普通人</a>
+                                <div class="push_right">
+                                    <a href="push_look.html" class="look">查看</a>
+                                    <a href="push_revise.html" class="relay">转发</a>
+                                    <a href="#" class="del">删除</a>
+                                </div>
+                            </div>
+                            <div class="push_bottom">
+                                <div class="push_left">图文</div>
+                                <div class="sends">
+                                    发送人群: 按用户类型选择
+                                    <p>（家长）</p>
+                                </div>
+                                <div class="push_left">发送成功: <span>242</span></div>
+                                <div class="push_left">发送失败: <span>0</span></div>
+                                <div class="push_left">阅读数: <span>1572</span></div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="bar">
+                        <div class="barcon">
+                            <select>
+                                <option value="显示10条">显示10条</option>
+                                <option value="显示20条">显示20条</option>
+                                <option value="显示30条">显示30条</option>
+                            </select>
+                            <div class="page">
+                                <a href="#" class="first"><img src="../images/first.jpg" /></a>
+                                <a href="#" class="up"><img src="../images/up.jpg" /></a>
+                                <span>第<input value="1"/>页 共1页</span>
+                                <a href="#" class="down"><img src="../images/down.jpg" /></a>
+                                <a href="#" class="last"><img src="../images/last.jpg" /></a>
+                            </div>
+                            <a href="#" class="reload"><img src="../images/reload.jpg"></a>
+                            <p>共10条记录</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab_css" id="tab2_content">
+                    <ul class="push_con">
+                        <li>
+                            <div class="push_top">
+                                <div class="push_left">今天天 16:51</div>
+                                <div class="push_type">图文</div>
+                                <a class="push_info">原来你们家娃也这样？那我就不扔了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了</a>
+                                <div class="push_right">
+                                    <a href="push_look.html" class="look">查看</a>
+                                    <a href="push_revise.html" class="revise">修改</a>
+                                    <a href="#" class="del">删除</a>
+                                    <a href="#" class="preview">预览</a>
+                                    <a href="#" class="sending">发送</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="push_top">
+                                <div class="push_left">昨天 11:34</div>
+                                <div class="push_type">图文</div>
+                                <a class="push_info">原来你们家娃也这样？那我就不扔了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了了</a>
+                                <div class="push_right">
+                                    <a href="push_look.html" class="look">查看</a>
+                                    <a href="push_revise.html" class="revise">修改</a>
+                                    <a href="#" class="del">删除</a>
+                                    <a href="#" class="preview">预览</a>
+                                    <a href="#" class="sending">发送</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="content">
+                        <div class="bar">
+                            <div class="barcon">
+                                <select>
+                                    <option value="显示10条">显示10条</option>
+                                    <option value="显示20条">显示20条</option>
+                                    <option value="显示30条">显示30条</option>
+                                </select>
+                                <div class="page">
+                                    <a href="#" class="first"><img src="../images/first.jpg" /></a>
+                                    <a href="#" class="up"><img src="../images/up.jpg" /></a>
+                                    <span>第<input value="1"/>页 共1页</span>
+                                    <a href="#" class="down"><img src="../images/down.jpg" /></a>
+                                    <a href="#" class="last"><img src="../images/last.jpg" /></a>
+                                </div>
+                                <a href="#" class="reload"><img src="../images/reload.jpg"></a>
+                                <p>共10条记录</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</main>
+<!--新增-->
+<div class="push_add">
+    <h2>新建信息</h2>
+    <div class="push_radio">
+        <input type="radio" name="types" /><span class="essay">图文</span>
+        <input type="radio" name="types" /><span class="push_link">链接</span>
+    </div>
+    <div class="btn">
+        <button class="save" type="submit">确定</button>
+        <a href="push.html"><button class="cancel" type="button">取消</button></a>
+    </div>
+</div>
+<!--转发-->
+<div class="push_relay">
+    <h2>发送对象</h2>
+    <div class="relay_con">
+        <select>
+            <option>全部用户</option>
+            <option>按用户类型选择</option>
+            <option>按学校类型选择</option>
+            <option>按自定义选择</option>
+        </select>
+        <select>
+            <option>教师</option>
+            <option>家长</option>
+        </select>
+        <!--<select>
+            <option>幼儿园</option>
+            <option>小学</option>
+        </select>-->
+        <button type="button">返回</button>
+        <table>
+            <tbody>
+            <tr>
+                <td class="rnum">1</td>
+                <td class="rsch">幼儿园</td>
+                <td class="check"><input type="checkbox" /></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>幼儿园</td>
+                <td><input type="checkbox" /></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>幼儿园</td>
+                <td><input type="checkbox" /></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>幼儿园</td>
+                <td><input type="checkbox" /></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="btn">
+        <button class="save" type="submit">确定</button>
+        <a href="push.html"><button class="cancel" type="button">取消</button></a>
+    </div>
+</div>
+<!--预览-->
+<div class="push_preview">
+    <h2>预览信息</h2>
+    <div class="preview_con">
+        <label>请输入与微信绑定的手机号：</label>
+        <input type="text" />
+    </div>
+    <div class="btn">
+        <button class="save" type="submit">确定</button>
+        <a href="push.html"><button class="cancel" type="button">取消</button></a>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var myclick = function(v) {
+        var llis = document.getElementsByClassName("tab");
+        for(var i = 0; i < llis.length; i++) {
+            var lli = llis[i];
+            if(lli == document.getElementById("tab" + v)) {
+                lli.style.backgroundColor = "#fff";
+            } else {
+                lli.style.backgroundColor = "#e4e4e4";
+            }
+        }
+
+        var divs = document.getElementsByClassName("tab_css");
+        for(var i = 0; i < divs.length; i++) {
+
+            var divv = divs[i];
+
+            if(divv == document.getElementById("tab" + v + "_content")) {
+                divv.style.display = "block";
+            } else {
+                divv.style.display = "none";
+            }
+        }
+
+    }
+</script>
+</body>
+</html>
