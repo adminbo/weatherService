@@ -1,3 +1,0 @@
-
-function myclick(gid,cid){
-}
