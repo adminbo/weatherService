@@ -2,8 +2,8 @@ package org.spring.event.demo;
 
 import javax.annotation.Resource;
 
-import org.spring.event.demo.core.PublisherDemo;
-import org.spring.event.demo.core.SpringContextUtil;
+import org.spring.event.demo.event.PublisherDemo;
+import org.spring.event.demo.event.SpringContextUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

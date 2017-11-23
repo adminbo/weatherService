@@ -1,4 +1,4 @@
-package org.spring.event.demo.core;
+package org.spring.event.demo.event;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
